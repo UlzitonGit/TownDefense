@@ -18,7 +18,7 @@ public class Warriors : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        warriorText.text = warrior.ToString();
         adder = GetComponent<WheatAdder>();
         priseText.text = (warrior * 2).ToString();
     }

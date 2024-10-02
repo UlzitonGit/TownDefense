@@ -61344,7 +61344,7 @@ MonoBehaviour:
   priseText: {fileID: 1985401735}
   warriorImage: {fileID: 32951924}
   warrior: 0
-  maxTime: 2
+  maxTime: 1
 --- !u!114 &1447526907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61362,7 +61362,7 @@ MonoBehaviour:
   enemy: {fileID: 7077358304514997853, guid: 7708491780299cf48ad3fdb8ad3857e3, type: 3}
   warrior: {fileID: 7077358304514997853, guid: 0f7609fde81a6aa49be4011a3809b46d, type: 3}
   raidText: {fileID: 1075373301}
-  enemies: 8
+  enemies: 20
 --- !u!1 &1448700737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3284380142945954000, guid: fc9968c4dc5d5264b89413cdfe5d303e, type: 3}

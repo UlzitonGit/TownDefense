@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator anim;
     private CapsuleCollider2D capsuleCollider;
     // Start is called before the first frame update
+    bool agred = false;
     private void Start()
     {
         dir = dir * Random.Range(1f, 2f);
@@ -20,9 +21,15 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && agred == false)
         {
+            agred = true;
             StartCoroutine(Fighting(collision.GetComponent<Knight>()));
+        }
+        if (collision.CompareTag("Player2") && agred == false)
+        {
+            agred = true;
+            StartCoroutine(Fighting2(collision.GetComponent<Knight1>()));
         }
     }
     IEnumerator Fighting(Knight warrior)
@@ -33,7 +40,18 @@ public class Enemy : MonoBehaviour
         capsuleCollider.enabled = false;
         dir = dir * 0;
         anim.SetTrigger("Attack");
+        this.GetComponent<Enemy>().enabled = false;
         yield return new WaitForSeconds(1);
         
+    }
+    IEnumerator Fighting2(Knight1 warrior)
+    {
+        
+        capsuleCollider.enabled = false;
+        dir = dir * 0;
+        anim.SetTrigger("Attack");
+        this.GetComponent<Enemy>().enabled = false;
+        yield return new WaitForSeconds(1);
+
     }
 }

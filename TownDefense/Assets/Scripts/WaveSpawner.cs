@@ -12,6 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI raidText;
     private Warriors warriors;
     [SerializeField] private int enemies = 3;
+    int num = 0;
     bool wave = false;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator StartRaid()
     {
         
-        for (int i = 40; i > 0; i--)
+        for (int i = 20 + num; i > 0; i--)
         {
             yield return new WaitForSeconds(1);
             raidText.text = i.ToString();
@@ -39,10 +40,13 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(enemy, enemySpp);
             if(warriors.warrior > 0)
             {
-                warriors.warrior--;
+                warriors.MinusWarrior(-1);
                 Instantiate(warrior, warriorSpp);
             }
         }
+        num += 3;
         StartCoroutine(StartRaid());
+        enemies = enemies * 2;
+        
     }
 }
