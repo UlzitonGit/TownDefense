@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Vector3 dir;
-    [SerializeField] Animator anim;
-    CapsuleCollider2D capsuleCollider;
+    [SerializeField] private Vector3 dir;
+    [SerializeField] private Animator anim;
+    private CapsuleCollider2D capsuleCollider;
     // Start is called before the first frame update
     private void Start()
     {

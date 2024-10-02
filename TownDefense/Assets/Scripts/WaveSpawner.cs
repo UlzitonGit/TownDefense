@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] Transform enemySpp;
-    [SerializeField] Transform warriorSpp;
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject warrior;
-    [SerializeField] TextMeshProUGUI raidText;
-    Warriors warriors;
-    [SerializeField] int enemies = 3;
+    [SerializeField] private Transform enemySpp;
+    [SerializeField] private Transform warriorSpp;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject warrior;
+    [SerializeField] private TextMeshProUGUI raidText;
+    private Warriors warriors;
+    [SerializeField] private int enemies = 3;
     bool wave = false;
     // Start is called before the first frame update
     void Start()

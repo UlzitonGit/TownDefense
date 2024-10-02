@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Warriors : MonoBehaviour
 {
-    WheatAdder adder;
+    private WheatAdder adder;
     [SerializeField] private TextMeshProUGUI warriorText;
     [SerializeField] private TextMeshProUGUI priseText;
     [SerializeField] private Image warriorImage;
