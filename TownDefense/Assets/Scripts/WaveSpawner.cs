@@ -9,8 +9,10 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform warriorSpp;
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject warrior;
+    [SerializeField] private GameObject bandit;
     [SerializeField] private TextMeshProUGUI raidText;
     private Warriors warriors;
+    private Farmers farmer;
     [SerializeField] private int enemies = 3;
     int num = 0;
     bool wave = false;
@@ -18,6 +20,7 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         warriors = GetComponent<Warriors>();
+        farmer = GetComponent<Farmers>();
         StartCoroutine(StartRaid());
     }
 
@@ -34,14 +37,33 @@ public class WaveSpawner : MonoBehaviour
     }
     IEnumerator Raiding()
     {
+        int spawned = 0;
         for (int i = 0; i < enemies; i++)
         {
             yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
             Instantiate(enemy, enemySpp);
             if(warriors.warrior > 0)
             {
+                spawned++;
                 warriors.MinusWarrior(-1);
                 Instantiate(warrior, warriorSpp);
+            }
+           
+            else if(spawned < enemies)
+            {
+                for (int j = 0; j < enemies * 2; j++)
+                {
+                    if (farmer.farmers > 0)
+                    {
+                        farmer.MinusFarmer();
+                        Instantiate(bandit, warriorSpp);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            
             }
         }
         num += 3;

@@ -60,4 +60,12 @@ public class Farmers : MonoBehaviour
         priseText.text = (farmers * 2).ToString();
         makingFarmer = false;
     }
+    public void MinusFarmer()
+    {
+        farmers -= 1;
+        farmerText.text = farmers.ToString();
+        adder.farmers -= 1;
+        
+        makingFarmer = false;
+    }
 }
